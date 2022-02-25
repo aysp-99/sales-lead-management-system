@@ -38,21 +38,21 @@
   align-items: center;
 }
 
-.loginFormContainer {
+.registrationFormContainer {
   border: 1px solid #dfe0e0;
   border-radius: 0.63rem;
   min-width: 31em;
-  padding: 3.94em 3.06em;
-  min-height: 25.25em;
+  padding: 3.75em 3.06em;
+  min-height: 40.94em;
 }
 
-.loginFormContainer h1 {
+.registrationFormContainer h1 {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 2.06rem;
 }
 
-.loginFormContainer form {
+.registrationFormContainer form {
   display: flex;
   flex-direction: column;
 }
@@ -63,6 +63,10 @@
   padding: 0.69rem 0 0.69rem 1rem;
   font-size: 1rem;
   margin-bottom: 2rem;
+}
+
+#fname {
+  margin-right: 1.25rem;
 }
 
 .submitButton {
@@ -78,12 +82,12 @@
   height: 2.75rem;
 }
 
-#registerLink {
+#loginLink {
   text-align: center;
   font-size: 1rem;
 }
 
-#registerLink a {
+#loginLink a {
   font-size: 1rem;
   text-decoration: none;
   margin-left: 0.2rem;
