@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/loginpage.css' %}">
+{% endblock %}
+{% block content %}
+<div class="leftContainer">
+    <h1>Welcome to dashboard</h1>
+    <p>This is the homepage of lead management system, login now to begin</p>
+    <img src="{% static 'images/illustration.svg' %}">
+</div>
+<div class="rightContainer">
+    <div class="loginFormContainer">
+        <h1>Login to your account</h1>
+        <form action="" method="POST">
+            <input class="inputBox" type="email" name="email" placeholder="Email Address">
+            <!-- <label for="email">Email address</label>  -->
+            <input class="inputBox" type="password" name="password" placeholder="Password">
+            <!-- <label for="password">Password</label> -->
+            <input class="submitButton" type="submit" value="Login">
+        </form>
+    </div>
+</div>
+{% endblock%}

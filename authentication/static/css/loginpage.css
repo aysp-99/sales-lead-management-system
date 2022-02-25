@@ -1,0 +1,78 @@
+.leftContainer {
+  flex: 1 1 20%;
+  font-family: "DM Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 5.88em 6.13em 0 7.44em;
+  background: rgba(247, 248, 250, 0.5);
+}
+
+.leftContainer h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  padding-right: 7.88rem;
+  color: #1e272e;
+}
+
+.leftContainer p {
+  font-size: 1.75rem;
+  margin-bottom: 3rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #566474;
+}
+
+.leftContainer img {
+  height: 400px;
+  width: 400px;
+  padding-right: 4.63rem;
+}
+
+.rightContainer {
+  font-family: "Source Sans Pro", sans-serif;
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginFormContainer {
+  border: 1px solid #dfe0e0;
+  border-radius: 0.63rem;
+  min-width: 31em;
+  padding: 3.94em 3.06em;
+  min-height: 25.25em;
+}
+
+.loginFormContainer h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 2.06rem;
+}
+
+.loginFormContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox {
+  border: 1px solid #ebf0f5;
+  border-radius: 0.31rem;
+  padding: 0.69rem 0 0.69rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.submitButton {
+  background: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 1.81rem;
+  height: 2.75rem;
+}
