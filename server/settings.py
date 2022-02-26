@@ -68,6 +68,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'authentication.UserProfile'
+
 WSGI_APPLICATION = 'server.wsgi.application'
 
 
