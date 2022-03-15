@@ -7,3 +7,6 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 
 admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.site_header = "Leads Management Platform"
+admin.site.site_title = "Leads Management Admin Site"
+admin.site.index_title = "Leads Management Admin"
