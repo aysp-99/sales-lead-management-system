@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/dashboardpage.css' %}">
+{% endblock %}
+{% block dashboardnavbar %}
+{% if request.user.is_authenticated %}
+    <a class="logoutButton" href="{% url 'logout' %}">Logout</a>
+    <p>Your email id is: {{request.user.email}}</p>
+{% endif %}
+{% endblock %}
+{% block content %}
+    <p>Hello, {{request.user.firstname}}</p>
+    <br>
+    <p>Your phone number is, {{request.user.phonenumber}}</p>
+    <img src="{{ request.user.avatar_url }}" width="200px" height="200px">
+{% endblock %} 

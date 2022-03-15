@@ -39,6 +39,7 @@
 }
 
 .registrationFormContainer {
+  font-family: "Source Sans Pro", sans-serif;
   border: 1px solid #dfe0e0;
   border-radius: 0.63rem;
   min-width: 31em;
@@ -55,6 +56,10 @@
 .registrationFormContainer form {
   display: flex;
   flex-direction: column;
+}
+
+span {
+  margin-right: 1.25rem;
 }
 
 .inputBox {

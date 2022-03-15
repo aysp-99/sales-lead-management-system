@@ -3,22 +3,22 @@
   font-family: "DM Sans", sans-serif;
   display: flex;
   flex-direction: column;
-  padding: 5.88em 6.13em 0 7.44em;
+  padding: 80px 59px 0 80px;
   background: rgba(247, 248, 250, 0.5);
 }
 
 .leftContainer h1 {
-  font-size: 2.8rem;
+  font-size: 37.5px;
   font-weight: bold;
   letter-spacing: -0.03em;
-  margin-bottom: 2rem;
+  margin-bottom: 22px;
   padding-right: 7.88rem;
   color: #1e272e;
 }
 
 .leftContainer p {
-  font-size: 1.75rem;
-  margin-bottom: 3rem;
+  font-size: 24px;
+  margin-bottom: 30px;
   font-weight: 500;
   letter-spacing: -0.03em;
   color: #566474;
@@ -32,8 +32,9 @@
 
 .rightContainer {
   font-family: "Source Sans Pro", sans-serif;
-  flex: 1 1 20%;
+  flex: 2 1 20%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -47,9 +48,10 @@
 }
 
 .loginFormContainer h1 {
-  font-size: 1.25rem;
+  font-size: 25.89px;
   font-weight: bold;
   margin-bottom: 2.06rem;
+  color: #1e272e;
 }
 
 .loginFormContainer form {

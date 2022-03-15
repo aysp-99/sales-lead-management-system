@@ -14,14 +14,16 @@
     <div class="registrationFormContainer">
         <h1>Register a new account</h1>
         <form action="" method="POST">
+            {% csrf_token %}
             <div class="nameGroup">
-                <input class="inputBox" id="fname" type="text" name="firstname" placeholder="Enter first name">
-                <input class="inputBox" type="text" name="lastname" placeholder="Enter last name">
+                {{ form.firstname }}
+                <span></span>
+                {{ form.lastname }}
             </div>
-            <input class="inputBox" type="email" name="email" placeholder="Enter email address">
-            <input class="inputBox" type="number" name="phonenumber" placeholder="Enter phone number">
-            <input class="inputBox" type="password" name="password" placeholder="Enter password">
-            <input class="inputBox" type="password" name="confirmpassword" placeholder="Confirm password">
+            {{ form.email }}    
+            {{ form.phonenumber }}
+            {{ form.password }}
+            {{ form.password_2 }}
             <input class="submitButton" type="submit" value="Register">
             <p id="loginLink">Already have an account?<a href="{% url 'user_login' %}">Login Now</a></p>
         </form>
