@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.utils import timezone
 
 
 class UserProfileManager(BaseUserManager):
@@ -26,13 +27,14 @@ class UserProfileManager(BaseUserManager):
         return user
 
 
-class UserProfile(AbstractBaseUser):
-    created_at = models.DateTimeField(auto_now_add=True)
+class UserProfile(AbstractBaseUser, PermissionsMixin):
+    created_at = models.DateTimeField(default=timezone.now)
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     email = models.EmailField(
         verbose_name='email address', max_length=255, unique=True)
     phonenumber = models.IntegerField(blank=True, null=True)
+    avatar = models.ImageField(null=True, blank=True, upload_to="user_avatar/")
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
@@ -43,6 +45,22 @@ class UserProfile(AbstractBaseUser):
 
     def __str__(self):
         return self.email
+
+    def __str__(self):
+        return self.firstname
+
+    def __str__(self):
+        return self.lastname
+
+    def __str__(self):
+        full_name = '%s %s' % (self.firstname, self.lastname)
+        return full_name.strip()
+
+    def avatar_url(self):
+        if self.avatar and hasattr(self.avatar, 'url'):
+            return self.avatar.url
+        else:
+            return "static/images/avatar1.jpg"
 
     def has_perm(self, perm, obj=None):
         return True

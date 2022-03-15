@@ -1,0 +1,27 @@
+a.logoutButton {
+  text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  background: none;
+  border: 1px solid #fd4646;
+  border-radius: 5px;
+  padding: 6px 12px;
+  color: #fd4646;
+  text-align: center;
+}
+
+.authButton {
+  font-family: "Source Sans Pro", sans-serif;
+  text-decoration: none;
+  background: #007bff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  line-height: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}

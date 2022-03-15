@@ -6,18 +6,24 @@
 {% endblock %}
 {% block content %}
 <div class="leftContainer">
-    <h1>Welcome to dashboard</h1>
+    <h1>Welcome to your Dashboard</h1>
     <p>This is the homepage of lead management system, login now to begin</p>
     <img src="{% static 'images/illustration.svg' %}">
 </div>
 <div class="rightContainer">
+    {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                  </button>
+                  {{ message }}
+                </div>
+                {% endfor %}
     <div class="loginFormContainer">
         <h1>Login to your account</h1>
-        <form action="" method="POST">
-            <input class="inputBox" type="email" name="email" placeholder="Email Address">
-            <!-- <label for="email">Email address</label>  -->
-            <input class="inputBox" type="password" name="password" placeholder="Password">
-            <!-- <label for="password">Password</label> -->
+        <form action="{% url 'user_login' %}" method="POST">
+            {% csrf_token %}
+            {{ login_form.email }}
+            {{ login_form.password }}
             <input class="submitButton" type="submit" value="Login">
             <p id="registerLink">New here?<a href="{% url 'user_registration' %}">Register Now</a></p>
         </form>
