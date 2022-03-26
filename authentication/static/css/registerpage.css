@@ -62,6 +62,14 @@ span {
   margin-right: 1.25rem;
 }
 
+.choicesBox {
+  border: 1px solid #ebf0f5;
+  border-radius: 0.31rem;
+  padding: 0.69rem 0 0.69rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
 .inputBox {
   border: 1px solid #ebf0f5;
   border-radius: 0.31rem;

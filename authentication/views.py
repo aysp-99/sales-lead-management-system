@@ -23,7 +23,7 @@ def test_login(request):
 def user_login(request):
     context = {}
     user = request.user
-    if user.is_authenticated:
+    if user.is_authenticated and user.approval_status_pending == False:
         return redirect("dashboard")
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
@@ -31,9 +31,14 @@ def user_login(request):
         password = request.POST.get('password')
         user = authenticate(email=email, password=password)
         if user:
-            login(request, user)
-            messages.success(request, "Logged In")
-            return redirect("dashboard")
+            if user.approval_status_pending == False:
+                print("user is approved")
+                login(request, user)
+                messages.success(request, "Logged In")
+                return redirect("dashboard")
+            else:
+                print("user is not approved")
+                return redirect("user_not_approved")
         else:
             messages.error(request, "Invalid Login, Please try again...")
     else:
@@ -51,6 +56,7 @@ def logout_view(request):
 def user_registration(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
+        print(form['user_type'].value())
         if form.is_valid():
             print(form.cleaned_data)
             form.save()
@@ -65,3 +71,7 @@ def user_registration(request):
 @login_required(login_url='user_login')
 def dashboard(request):
     return render(request, 'authentication/dashboard.html', {})
+
+
+def user_not_approved(request):
+    return render(request, 'authentication/user_not_approved.html', {})

@@ -15,4 +15,5 @@
     <br>
     <p>Your phone number is, {{request.user.phonenumber}}</p>
     <img src="{{ request.user.avatar_url }}" width="200px" height="200px">
+    <p>approval status is {{request.user.get_approval_status}}</p>
 {% endblock %} 

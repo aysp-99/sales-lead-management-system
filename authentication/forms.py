@@ -1,5 +1,5 @@
 from django import forms
-from authentication.models import UserProfile
+from authentication.models import USER_TYPE, UserProfile
 from django.contrib.auth import authenticate
 
 
@@ -8,10 +8,12 @@ class UserRegistrationForm(forms.ModelForm):
         attrs={'class': 'inputBox', 'placeholder': 'Enter password'}))
     password_2 = forms.CharField(
         label='', widget=forms.PasswordInput(attrs={'class': 'inputBox', 'placeholder': 'Confirm password'}))
+    user_type = forms.ChoiceField(
+        choices=USER_TYPE, widget=forms.Select(attrs={'class': 'choicesBox'}))
 
     class Meta:
         model = UserProfile
-        fields = ['firstname', 'lastname', 'email', 'phonenumber']
+        fields = ['user_type', 'firstname', 'lastname', 'email', 'phonenumber']
         labels = {
             'firstname': '',
             'lastname': '',
@@ -51,6 +53,7 @@ class UserRegistrationForm(forms.ModelForm):
     def save(self, commit=True):
         # Save the provided password in hashed format
         user = super().save(commit=False)
+        user.user_type = self.cleaned_data["user_type"]
         user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()

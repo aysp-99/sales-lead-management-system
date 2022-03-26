@@ -15,6 +15,7 @@
         <h1>Register a new account</h1>
         <form action="" method="POST">
             {% csrf_token %}
+            {{ form.user_type }}
             <div class="nameGroup">
                 {{ form.firstname }}
                 <span></span>

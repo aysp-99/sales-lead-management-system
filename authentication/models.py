@@ -3,6 +3,12 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.utils import timezone
 
 
+USER_TYPE = [
+    ('sales_representative', 'Sales Representative'),
+    ('sales_admin', 'Sales Admin'),
+]
+
+
 class UserProfileManager(BaseUserManager):
     def create_user(self, email, password=None):
         if not email:
@@ -21,6 +27,7 @@ class UserProfileManager(BaseUserManager):
             email=self.normalize_email(email),
             password=password
         )
+        user.approval_status_pending = False
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
@@ -35,8 +42,10 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         verbose_name='email address', max_length=255, unique=True)
     phonenumber = models.IntegerField(blank=True, null=True)
     avatar = models.ImageField(null=True, blank=True, upload_to="user_avatar/")
+    user_type = models.CharField(max_length=20, choices=USER_TYPE)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    approval_status_pending = models.BooleanField(default=True)
 
     objects = UserProfileManager()
 
@@ -62,8 +71,20 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         else:
             return "static/images/avatar1.jpg"
 
+    def get_approval_status(self):
+        return self.approval_status_pending
+
     def has_perm(self, perm, obj=None):
         return True
 
     def has_module_perms(self, app_label):
         return True
+
+    class Meta:
+        permissions = (
+            ("add_leads", "To add leads"),
+            ("edit_leads", "To edit leads"),
+            ("delete_leads", "To delete leads"),
+            ("view_leads", "To view leads"),
+            ("assign_leads", "To assign leads to sales representatives")
+        )
